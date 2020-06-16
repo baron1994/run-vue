@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Edit />
-    <Show />
+    <Edit @input="handleInput" @run="handleRun" />
+    <Show :code="code" ref="show" />
   </div>
 </template>
 
@@ -11,9 +11,22 @@ import Show from "@/components/show.vue";
 
 export default {
   name: "App",
+  data() {
+    return {
+      code: ""
+    };
+  },
   components: {
     Edit,
     Show
+  },
+  methods: {
+    handleInput(v) {
+      this.code = v;
+    },
+    handleRun() {
+      this.$refs.show.run();
+    }
   }
 };
 </script>
