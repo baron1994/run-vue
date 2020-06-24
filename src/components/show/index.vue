@@ -1,5 +1,5 @@
 <template>
-  <div class="show-box" ref="show"></div>
+  <div class="show-box" ref="display"></div>
 </template>
 
 <script>
@@ -10,6 +10,11 @@ export default {
       type: String,
       default: ""
     }
+  },
+  data() {
+    return {
+      component: null
+    };
   },
   methods: {
     run() {
@@ -32,9 +37,11 @@ export default {
         // $mount可以实现手动挂载组件
         // 先获取组件的实例 Vue.compoin{}
         let instance = new (this.$options._base.extend(component))();
-        let vnode = instance.$mount().$el; // 在内存中进行挂载
-        this.$refs.show.innerHTML = "";
-        this.$refs.show.appendChild(vnode); // 挂载的结果放到了$refs上
+        // let vnode = instance.$mount().$el; // 在内存中进行挂载
+        // this.$refs.display.innerHTML = "";
+        // this.$refs.display.appendChild(vnode); // 挂载的结果放到了$refs上
+        this.component = instance.$mount();
+        this.$refs.display.appendChild(this.component.$el);
       }
       if (style) {
         let element = document.createElement("style");
@@ -58,6 +65,13 @@ export default {
       } else {
         return "";
       }
+    },
+    reset() {
+      if (this.component) {
+        this.$refs.display.removeChild(this.component.$el);
+        this.component.$destroy();
+        this.component = null;
+      }
     }
   }
 };
@@ -65,7 +79,9 @@ export default {
 
 <style>
 .show-box {
-  width: 50%;
+  width: 100%;
   height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
 }
 </style>

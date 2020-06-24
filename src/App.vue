@@ -44,7 +44,6 @@ export default {
           "CodeMirror-foldgutter",
           "CodeMirror-lint-markers"
         ],
-        autofocus: true,
         styleActiveLine: true
       }
     };
@@ -56,18 +55,25 @@ export default {
   },
   methods: {
     run() {
-      console.log("run");
-      // this.$refs.runcode.destroyCode();
-      // this.$refs.runcode.renderCode();
+      // console.log("run");
+      this.$refs.show.reset();
+      this.$refs.show.run();
     },
     reset() {
-      console.log("reset");
-      // this.$refs.runcode.destroyCode();
-      // this.code = codeTemplate;
-      // this.$nextTick(() => {
-      //   this.$refs.runcode.renderCode();
-      // });
+      // console.log("reset");
+      this.$refs.show.reset();
+      this.code = codeTemplate;
+      this.$nextTick(() => {
+        // this.$refs.show.run();
+      });
     }
+  },
+  mounted() {
+    //解决嵌套使用codemirror时，点击才会显示的问题。
+    var timer = setTimeout(() => {
+      this.$refs.mycodemirror.codemirror.refresh();
+      clearTimeout(timer);
+    }, 0);
   }
 };
 </script>

@@ -1,7 +1,7 @@
 module.exports = {
   lintOnSave: false,
   runtimeCompiler: true,
-  publicPath: process.env.NODE_ENV === "production" ? '/vue-running' : "/",
+  publicPath: process.env.NODE_ENV === "production" ? '/run-vue' : "/",
   productionSourceMap: false,//关闭生产环境的sourceMap
   chainWebpack: config => {
     config.optimization
