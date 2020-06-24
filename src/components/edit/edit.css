@@ -1,0 +1,40 @@
+body {
+  font-size: 14px;
+  font-family: Helvetica Neue, Helvetica, PingFang SC, Hiragino Sans GB,
+    Microsoft YaHei, Arial, sans-serif;
+  line-height: 1.5;
+}
+.vue-codemirror {
+  height: 100%;
+}
+.CodeMirror {
+  height: 100%;
+  font-weight: 400;
+  color: #525252;
+  font-family: Consolas, Menlo, Courier, monospace;
+}
+
+.CodeMirror-lines {
+  cursor: text;
+  min-height: 1px;
+}
+.CodeMirror pre {
+  -moz-border-radius: 0;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  border-width: 0;
+  background: transparent;
+  font-family: inherit;
+  font-size: inherit;
+  margin: 0;
+  white-space: pre;
+  word-wrap: normal;
+  line-height: inherit;
+  color: inherit;
+  z-index: 2;
+  position: relative;
+  overflow: visible;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-font-variant-ligatures: contextual;
+  font-variant-ligatures: contextual;
+}

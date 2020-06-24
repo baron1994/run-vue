@@ -1,9 +1,5 @@
 <template>
-  <div>
-    <h1>代码运行结果</h1>
-
-    <div class="show-box" ref="show"></div>
-  </div>
+  <div class="show-box" ref="show"></div>
 </template>
 
 <script>
@@ -37,6 +33,7 @@ export default {
         // 先获取组件的实例 Vue.compoin{}
         let instance = new (this.$options._base.extend(component))();
         let vnode = instance.$mount().$el; // 在内存中进行挂载
+        this.$refs.show.innerHTML = "";
         this.$refs.show.appendChild(vnode); // 挂载的结果放到了$refs上
       }
       if (style) {
@@ -58,9 +55,17 @@ export default {
           code.indexOf(tag) + tag.length,
           code.lastIndexOf(`</${type}>`)
         );
+      } else {
+        return "";
       }
     }
   }
 };
 </script>
 
+<style>
+.show-box {
+  width: 50%;
+  height: 100%;
+}
+</style>
