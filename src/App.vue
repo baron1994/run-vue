@@ -64,7 +64,7 @@ export default {
       this.$refs.show.reset();
       this.code = codeTemplate;
       this.$nextTick(() => {
-        // this.$refs.show.run();
+        this.$refs.show.run();
       });
     }
   },
@@ -92,5 +92,6 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
+  background: #fff;
 }
 </style>

@@ -4,6 +4,8 @@
 
 <script>
 import { match } from "assert";
+import { randomString } from "@/utils";
+
 export default {
   props: {
     code: {
@@ -13,7 +15,8 @@ export default {
   },
   data() {
     return {
-      component: null
+      component: null,
+      cssid: randomString(32)
     };
   },
   methods: {
@@ -44,10 +47,16 @@ export default {
         this.$refs.display.appendChild(this.component.$el);
       }
       if (style) {
-        let element = document.createElement("style");
-        element.style = "text/css";
-        element.innerText = style;
-        document.body.appendChild(element);
+        let styleEle = document.getElementById(this.cssid);
+        if (styleEle) {
+          styleEle.innerText = style;
+        } else {
+          let element = document.createElement("style");
+          element.setAttribute("type", "text/css");
+          element.id = this.cssid;
+          element.innerText = style;
+          document.getElementsByTagName("head")[0].appendChild(element);
+        }
       }
       console.log(component);
     },
@@ -67,11 +76,15 @@ export default {
       }
     },
     reset() {
+      this.$refs.display.innerHTML = "";
+      this.component = null;
       if (this.component) {
-        this.$refs.display.removeChild(this.component.$el);
         this.component.$destroy();
-        this.component = null;
       }
+      // let styleEle = document.getElementById(this.cssid);
+      // if (styleEle) {
+      //   styleEle.innerText = "";
+      // }
     }
   }
 };

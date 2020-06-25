@@ -18,10 +18,6 @@ yarn serve
 yarn build
 ```
 
-### Customize configuration
-
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
 使用技术：vue-codemirror 仿 https://run.iviewui.com/
 
 参考了 https://github.com/xiaolannuoyi/vue-running
