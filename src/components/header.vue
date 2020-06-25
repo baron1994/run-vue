@@ -15,7 +15,7 @@
       <Tooltip placement="bottom-end">
         <div slot="content">
           <p>仿run.iviewui.com</p>
-          <p>可在线运行vue组件</p>
+          <p>可在线运行Vue组件</p>
           <p>支持iView组件</p>
           <p>支持element-ui组件</p>
         </div>

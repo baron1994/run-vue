@@ -38,7 +38,8 @@ export default {
       if (template) {
         component.template = template;
         // $mount可以实现手动挂载组件
-        // 先获取组件的实例 Vue.compoin{}
+        // 目前component是一个对象，没有$mount方法
+        // Vue.extend()创建构造器，再创建实例
         let instance = new (this.$options._base.extend(component))();
         // let vnode = instance.$mount().$el; // 在内存中进行挂载
         // this.$refs.display.innerHTML = "";
