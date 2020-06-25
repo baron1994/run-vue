@@ -87,6 +87,7 @@ body {
 
 .main {
   position: absolute;
+  z-index: -1;
   top: 50px;
   left: 0;
   right: 0;

@@ -1,9 +1,10 @@
 export default `<template>
   <div>
-    <Alert show-icon>当前 iView 版本为 4.2.0</Alert>
-    <el-alert show-icon title="当前 Element 版本为 2.13.2" :closable="false"></el-alert>
+    <Alert show-icon>这是iView Alert组件（当前 iView 版本为 4.2.0）</Alert>
+    <el-alert show-icon title="这是Element Alert组件（当前 Element 版本为 2.13.2）" :closable="false"></el-alert>
   </div>
 </template>
+
 <script>
 export default {
   data () {
@@ -19,6 +20,7 @@ export default {
   }
 }
 </script>
+
 <style>
 
 </style>`

@@ -50,7 +50,7 @@ export default {
   line-height: 50px;
   width: 100%;
   padding: 0 40px;
-  box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
+  box-shadow: 0 1px 3px rgba(26, 26, 26, 0.11);
   margin-bottom: 1px;
   box-sizing: border-box;
   background: #fff;
